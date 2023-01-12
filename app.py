@@ -1,12 +1,18 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import psycopg2
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
+
+DATABASE_URL = os.getenv("DATABASE_URL")
+DATABASE_USERNAME = os.getenv("DATABASE_USERNAME")
+DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD")
 
 app= Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/todo_app_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://NstmpRBITSfiZZfLLQoeSajdVaKceJNt:iswSXeCMnUXrsxFEEcNLnjbKrolWcBIe@db.thin.dev/16ff3dd6-099f-421a-9245-428e05b68151'
 db = SQLAlchemy(app)
-
 
 class Todo(db.Model):
     __tablename__ = 'todos'
