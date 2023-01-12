@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 app= Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://NstmpRBITSfiZZfLLQoeSajdVaKceJNt:iswSXeCMnUXrsxFEEcNLnjbKrolWcBIe@db.thin.dev/16ff3dd6-099f-421a-9245-428e05b68151'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/todo_app_db'
 db = SQLAlchemy(app)
 
 
@@ -47,4 +47,4 @@ def delete(todo_id):
 if __name__ == "__main__":
     app.app_context().push()
     db.create_all()
-    #app.run(debug= True)
+    app.run(debug= True)
